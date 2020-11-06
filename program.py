@@ -14,6 +14,7 @@ def listToString(s):
 
 def getText(link):
     source = requests.get(link).text
+
     soup = BeautifulSoup(source, 'lxml')
 
     text = []
@@ -21,23 +22,24 @@ def getText(link):
         for section in body.find_all('div', class_='group'):
             for paragraph in section.find_all('p'):
                 text.append(paragraph.text)
-                
+
     return listToString(text)
 
-"""def getDocuments():
+def getDocuments():
+    #BELUM BISA SAVE KE BEBERAPA DOCUMENT
     source = requests.get("https://www.cnbc.com/world/?region=world").text
 
     soup = BeautifulSoup(source, 'lxml')
 
-    article = soup.find('div', class_='LatestNews-newsFeed')
+    article = soup.find('div', class_='LatestNews-newsFeed') #nanti di sini looping find_all
     title = (article.a.text)
     link = (article.a['href'])
     text = getText(link)
 
-    text_file = open('documents.txt', 'w')
-    text_file.write(title)
-    text_file.write(text)
-    text_file.close() """
+    csv_file = open('documents.csv', 'w')
+    csv_writer = csv.writer(csv_file)
+    csv_writer.writerow([title, text])
+    csv_file.close()
 
 """ def stopwords(sentence):
     stop_words = set(stopwords.words('english'))
