@@ -41,15 +41,14 @@ def getDocuments():
     csv_writer.writerow([title, text])
     csv_file.close()
 
-""" def stopwords(sentence):
+def stopwords(sentence):
     stop_words = set(stopwords.words('english'))
 
     word_tokens = word_tokenize(sentence)
 
     filtered_sentence = [w for w in word_tokens if not w in stop_words] 
 
-    print(word_tokens) 
-    print(filtered_sentence) """
+    return listToString(filtered_sentence)
 
 def stemming(sentence):
     ps = PorterStemmer()
