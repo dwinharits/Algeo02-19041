@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from lxml import html
 from urllib.request import urlopen
-import csv
 import nltk
 from nltk.corpus import stopwords, words
 from nltk.tokenize import word_tokenize
