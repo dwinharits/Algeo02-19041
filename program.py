@@ -26,8 +26,6 @@ def getText(link):
     stringText = separator.join(text)
     return stringText
 
-    return listToString(text)
-
 def getDocuments():
     source = requests.get("https://www.cnbc.com/world/?region=world").text
 
