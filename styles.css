@@ -1,0 +1,68 @@
+:root {
+    --dark60: rgba(48,70,89,.4);
+}
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: 
+        linear-gradient(
+            var(--dark60),
+            var(--dark60)
+        ),
+        url(./images/background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.logo{
+    position: absolute;
+    color: black;
+    width: 120px;
+    height: 120px;
+    top: 38%;
+    left: 46.2%;
+}
+.search-box{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #FFFFFF;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-box:hover > .search-btn{
+    background: white;
+}
+.search-btn{
+    float: right;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
