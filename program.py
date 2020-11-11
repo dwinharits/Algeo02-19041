@@ -100,55 +100,88 @@ def STokenWord(namafile): #namafile: string.txt
                     words.append(ps.stem(j))
     return words
 
-def sim(qtf,dtf): #qtf, dtf: array of integer dari TF query dan dokumen
-    dotcount = 0
+def simi(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dokumen
+
     squareQ = 0
-    squareD = 0
-
-    for i in range (len(dtf)):
-        dotcount += qtf[i] * dtf[i]
+    for i in range (len(qtf)):
         squareQ += qtf[i]**2
-        squareD += dtf[i]**2
-
     lengthQ = math.sqrt(squareQ)
-    lengthD = math.sqrt(squareD)
 
-    return dotcount/(lengthD*lengthQ)
+    Arrsim = []
+    for i in range (R): #jumlah dokumen
+        dotcount = 0
+        squareD = 0
+        for j in range (C):
+            dotcount += qtf[j] * DTermMatrix[i][j]
+            squareD += DTermMatrix[i][j]**2
+        lengthD = math.sqrt(squareD)
+        Arrsim.append(dotcount/(lengthD*lengthQ))
+
+    return Arrsim
 
 ''' ++++++++ MAIN ++++++++ '''
 #KAMUS
 '''
-words: array of string
-a = array of array of integer untuk matriks TF(term frequency), 0..30
+words: array of string dari total term
+query = array of array of integer untuk matriks TF(term frequency), 0..30 untuk query
+a = array of array of integer untuk matriks TF(term frequency), 0..30 untuk dokumen
 simIndex = array of integer untuk hasil cosine similarity per dokumen
            0..29 sesuai jumlah file
 '''
+#getDocuments()
+
 words = []
-a = [[] for i in range(31)]
+query = [[] for i in range(30)]
+a = [[] for i in range(30)]
 simIndex = [0 for i in range(30)]
 
-for i in range(1,31):
-    namafile = 'document' + str(i) + '.txt'
+for i in range(30):
+    namafile = 'document' + str(i+1) + '.txt'
     setOfWords = set(words)|set(STokenWord(namafile))
     words = list(setOfWords)
-a[0] = QTermFrequencies(words, 'joe biden')
-for i in range(1,31):
-    namafile = 'document' + str(i) + '.txt'
-    a[i] = DTermFrequencies(words, namafile) 
-for i in range(1,31):
-    simIndex[i-1] = sim(a[0],a[i])
+    
+print(words) #daftar term
+print(len(words)) #jumlah term
 
-# nanti ke-print simIndexnya, tinggal disort buat tau yang
-# mana dokumen paling relevan, jangan lupa indeksnya 0..29
-print(simIndex)
+R = 30  #jumlah dokumen (D1 memiliki indeks 0, D2 memiliki indeks 1, dsb)
+C = len(words) #jumlah term
 
+query = QTermFrequencies(words, 'after')
+#print(query)
 
+for i in range(R):
+    namafile = 'document' + str(i+1) + '.txt'
+    a[i] = DTermFrequencies(words, namafile)   
+    #print(a[i])
 
+DTermMatrix = [] #Matriks yang berisi frekuensi kemunculan term per dokumen
+for i in range(R):         
+    b =[] 
+    for j in range(C):    
+        b.append(a[i][j]) 
+    DTermMatrix.append(b) 
+ 
+# Mencetak DTermMatriks
+print("Matriks frekuensi kemunculan term dalam dokumen")
+for i in range(R): 
+    for j in range(C): 
+        print(DTermMatrix[i][j], end = " ") 
+    print() 
 
+# Membentuk matriks dengan key : nilai sim; value : indeks
+MatrixSim = simi(query,DTermMatrix,R,C)
 
+d =[]
+for i in range (R):
+    d.append(i)
 
+Mindeks_sim = dict(zip(d, MatrixSim))
+#print(Mindeks_sim)
 
+# Mengurutkan dictionary berdasarkan value (nilai sim)
+sort = {k: v for k, v in sorted(Mindeks_sim.items(), key=lambda item: item[1], reverse=True)}
+print("\nUrutan dokumen dengan nilai sim terurut mengecil")
+print(sort)
 
-
-        
+    
 
