@@ -13,18 +13,21 @@ body{
             var(--dark60),
             var(--dark60)
         ),
-        url(./images/background.jpg);
+        url(./images/background.jpg)/*#D1C3B7*/;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 }
 .logo{
-    position: absolute;
     color: black;
-    width: 120px;
-    height: 120px;
-    top: 38%;
-    left: 46.2%;
+    width: 140px;
+    height: 140px;
+    top: 45%;
+    left: 50.5%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    border-radius: 40px;
 }
 .search-box{
     position: absolute;
@@ -65,4 +68,16 @@ body{
     transition: 0.4s;
     line-height: 40px;
     width: 0px;
+}
+/*.results_title{
+    position: relative;
+    color: black;
+    width: 192px;
+    height: 123px;
+    left: 5%;
+    font-family: 'Ramaraja';
+    font-size: 50px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 123px;
 }
