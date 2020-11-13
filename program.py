@@ -158,7 +158,7 @@ first_sentence=[]
 
 for i in range(30):
     namafile = 'document' + str(i+1) + '.txt'
-    setOfWords = set(words)|set(STokenWord(namafile)[0])
+    setOfWords = set(words)|set(STokenWord(namafile))
     words = list(setOfWords)
     first_sentence.append(fsentence(namafile))  
     wordcount.append(jumlahkata(namafile))
