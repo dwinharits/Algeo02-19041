@@ -39,7 +39,7 @@ def getText(link):
     stringText = separator.join(text)
     return stringText
 
-def getDocuments():
+def getDocuments(titles,links):
     source = requests.get("https://www.cnbc.com/world/?region=world").text
 
     soup = BeautifulSoup(source, 'lxml')
@@ -47,14 +47,13 @@ def getDocuments():
     i = 1
     for article in soup.find_all('div', class_='LatestNews-newsFeed'):
         title = (article.a.text)
+        titles.append(title)
         link = (article.a['href'])
+        links.append(link)
         text = getText(link)
-
         file_name = 'document' + str(i) + '.txt'
 
         text_file = open(file_name, 'w', encoding='utf-8', errors='ignore')
-        text_file.write(title)
-        text_file.write('\n\n')
         text_file.write(text)
         text_file.close()
         i = i + 1
@@ -128,7 +127,9 @@ a = array of array of integer untuk matriks TF(term frequency), 0..30 untuk doku
 simIndex = array of integer untuk hasil cosine similarity per dokumen
            0..29 sesuai jumlah file
 '''
-#getDocuments()
+titles = []
+links = []
+getDocuments(titles,links)
 
 words = []
 query = [[] for i in range(30)]
