@@ -122,7 +122,20 @@ def simi(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dok
             Arrsim.append(dotcount/(lengthD*lengthQ))
             return Arrsim
 
+def fsentence (namafile):
+    with open(namafile,'r') as file:
+        first_line = file.readline()
+    return first_line
 
+#print(first_line)
+def jumlahkata (namafile):
+    with open(namafile,'r') as file: 
+        count = 0     
+        for line in file:        
+            for word in line.split():          
+                print(word)
+                count += 1 
+    return count   
 
 ''' ++++++++ MAIN ++++++++ '''
 #KAMUS
@@ -140,14 +153,18 @@ getDocuments(titles,links)
 words = []
 query = [[] for i in range(30)]
 a = [[] for i in range(30)]
+wordcount = []
+first_sentence=[]
 
 for i in range(30):
     namafile = 'document' + str(i+1) + '.txt'
     setOfWords = set(words)|set(STokenWord(namafile)[0])
     words = list(setOfWords)
+    first_sentence.append(fsentence(namafile))  
+    wordcount.append(jumlahkata(namafile))
     
-print(words) #daftar term
-print(len(words)) #jumlah term
+#print(words) #daftar term
+#print(len(words)) #jumlah term
 
 R = 30  #jumlah dokumen (D1 memiliki indeks 0, D2 memiliki indeks 1, dsb)
 C = len(words) #jumlah term
@@ -161,18 +178,31 @@ for i in range(R):
     #print(a[i])
 
 DTermMatrix = [] #Matriks yang berisi frekuensi kemunculan term per dokumen
+DTermMatrix.append(query)
 for i in range(R):         
     b =[] 
     for j in range(C):    
         b.append(a[i][j]) 
     DTermMatrix.append(b) 
  
-# Mencetak DTermMatriks
+# Mencetak DTermMatriks (belum di transpose)
 print("Matriks frekuensi kemunculan term dalam dokumen")
-for i in range(R): 
+for i in range(R+1): 
     for j in range(C): 
         print(DTermMatrix[i][j], end = " ") 
     print() 
+
+#transpose
+MFull = [[0 for i in range (R+1)] for j in range (C)]
+
+for i in range(R+1):
+    for j in range (C):
+        MFull[j][i] = DTermMatrix[i][j]
+
+for i in range(C): 
+    for j in range(R+1): 
+        print(MFull[i][j], end = " ") 
+    print()
 
 # Membentuk matriks dengan key : nilai sim; value : indeks
 MatrixSim = simi(query,DTermMatrix,R,C)
