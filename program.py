@@ -94,6 +94,7 @@ def STokenWord(namafile): #namafile: string.txt
     with open(namafile, 'r') as f:
         for i in f:
             kata = word_tokenize(i)
+            #countkata = len(kata)
             for j in kata:
                 if(not(ps.stem(j) in words) and not(j in stop_words)):
                     words.append(ps.stem(j))
@@ -114,9 +115,14 @@ def simi(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dok
             dotcount += qtf[j] * DTermMatrix[i][j]
             squareD += DTermMatrix[i][j]**2
         lengthD = math.sqrt(squareD)
-        Arrsim.append(dotcount/(lengthD*lengthQ))
 
-    return Arrsim
+        if ((lengthD*lengthQ)==0):
+            return 2
+        else:
+            Arrsim.append(dotcount/(lengthD*lengthQ))
+            return Arrsim
+
+
 
 ''' ++++++++ MAIN ++++++++ '''
 #KAMUS
@@ -124,7 +130,7 @@ def simi(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dok
 words: array of string dari total term
 query = array of array of integer untuk matriks TF(term frequency), 0..30 untuk query
 a = array of array of integer untuk matriks TF(term frequency), 0..30 untuk dokumen
-simIndex = array of integer untuk hasil cosine similarity per dokumen
+MatrixSim = array of integer untuk hasil cosine similarity per dokumen
            0..29 sesuai jumlah file
 '''
 titles = []
@@ -134,11 +140,10 @@ getDocuments(titles,links)
 words = []
 query = [[] for i in range(30)]
 a = [[] for i in range(30)]
-simIndex = [0 for i in range(30)]
 
 for i in range(30):
     namafile = 'document' + str(i+1) + '.txt'
-    setOfWords = set(words)|set(STokenWord(namafile))
+    setOfWords = set(words)|set(STokenWord(namafile)[0])
     words = list(setOfWords)
     
 print(words) #daftar term
@@ -172,17 +177,12 @@ for i in range(R):
 # Membentuk matriks dengan key : nilai sim; value : indeks
 MatrixSim = simi(query,DTermMatrix,R,C)
 
-d =[]
-for i in range (R):
-    d.append(i)
-
-Mindeks_sim = dict(zip(d, MatrixSim))
-#print(Mindeks_sim)
-
-# Mengurutkan dictionary berdasarkan value (nilai sim)
-sort = {k: v for k, v in sorted(Mindeks_sim.items(), key=lambda item: item[1], reverse=True)}
 print("\nUrutan dokumen dengan nilai sim terurut mengecil")
-print(sort)
 
-    
+arrTuple = [(MatrixSim[i], jumlahkata[i], fsentence[i], titles[i], links[i]) for i in range(len(MatrixSim))]
+
+def getKey(item): #diisi arrTuple
+    return item[0]
+
+sorted(arrTuple, key=getKey, reverse = True)
 
