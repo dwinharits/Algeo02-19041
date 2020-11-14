@@ -94,33 +94,45 @@ def STokenWord(namafile): #namafile: string.txt
     with open(namafile, 'r') as f:
         for i in f:
             kata = word_tokenize(i)
-            #countkata = len(kata)
             for j in kata:
                 if(not(ps.stem(j) in words) and not(j in stop_words)):
                     words.append(ps.stem(j))
     return words
 
-def simi(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dokumen
+def STokenWord_q(inputstr): #input query dari user
+# return kata-kata yang unik dan udah distem dan tanpa stopwords dari query
+    words_q = []
+    kata = word_tokenize(inputstr)
+    for j in kata:
+        if(not(ps.stem(j) in words_q) and not(j in stop_words)):
+            words_q.append(ps.stem(j))
+    
+    qtf = [0 for i in words_q]
+    for i in range(len(qtf)):
+        count = 0
+        for j in kata:
+            if(j==words_q[i]):
+                count += 1
+        qtf[i] = count
+    return words_q, qtf
 
-    squareQ = 0
-    for i in range (len(qtf)):
-        squareQ += qtf[i]**2
-    lengthQ = math.sqrt(squareQ)
+def lengthdoc (tf):
+    square = 0
+    for i in range (len(tf)):
+        square += tf[i]**2
+    length = math.sqrt(square)
 
-    Arrsim = []
-    for i in range (R): #jumlah dokumen
+    return length
+
+def hasildot(qtf,DTermMatrix,R,C): #qtf, dtf: array of integer dari TF query dan dokumen
+    Arrdot = []
+    for i in range (1,R+1): #jumlah dokumen
         dotcount = 0
-        squareD = 0
         for j in range (C):
             dotcount += qtf[j] * DTermMatrix[i][j]
-            squareD += DTermMatrix[i][j]**2
-        lengthD = math.sqrt(squareD)
+        Arrdot.append(dotcount)
 
-        if ((lengthD*lengthQ)==0):
-            return 2
-        else:
-            Arrsim.append(dotcount/(lengthD*lengthQ))
-            return Arrsim
+    return Arrdot
 
 def fsentence (namafile):
     with open(namafile,'r') as file:
@@ -133,7 +145,7 @@ def jumlahkata (namafile):
         count = 0     
         for line in file:        
             for word in line.split():          
-                print(word)
+                #print(word)
                 count += 1 
     return count   
 
@@ -149,10 +161,13 @@ MatrixSim = array of integer untuk hasil cosine similarity per dokumen
 titles = []
 links = []
 getDocuments(titles,links)
-
+words_q = STokenWord_q("today a fine fine fine day")[0]
+frequency_q = STokenWord_q("today a fine fine fine day")[1]
 words = []
-query = [[] for i in range(30)]
-a = [[] for i in range(30)]
+R = 30 
+
+query = [[] for i in range(R)]
+a = [[] for i in range(R)]
 wordcount = []
 first_sentence=[]
 
@@ -168,14 +183,11 @@ for i in range(30):
 
 R = 30  #jumlah dokumen (D1 memiliki indeks 0, D2 memiliki indeks 1, dsb)
 C = len(words) #jumlah term
-
 query = QTermFrequencies(words, 'after')
-#print(query)
 
 for i in range(R):
     namafile = 'document' + str(i+1) + '.txt'
     a[i] = DTermFrequencies(words, namafile)   
-    #print(a[i])
 
 DTermMatrix = [] #Matriks yang berisi frekuensi kemunculan term per dokumen
 DTermMatrix.append(query)
@@ -184,35 +196,51 @@ for i in range(R):
     for j in range(C):    
         b.append(a[i][j]) 
     DTermMatrix.append(b) 
- 
-# Mencetak DTermMatriks (belum di transpose)
+
 print("Matriks frekuensi kemunculan term dalam dokumen")
-for i in range(R+1): 
-    for j in range(C): 
-        print(DTermMatrix[i][j], end = " ") 
-    print() 
+Mterm_0 = []
+i=0
+while (i < C):
+    if DTermMatrix[0][i] != 0:
+        Mterm_0.append(i)
+    i += 1
 
-#transpose
-MFull = [[0 for i in range (R+1)] for j in range (C)]
+#for i in range(R+1): 
+    #for j in range (C):
+        #if j in Mterm_0:
+            #print(DTermMatrix[i][j], end = " ") 
+    #print() 
 
-for i in range(R+1):
-    for j in range (C):
-        MFull[j][i] = DTermMatrix[i][j]
-
-for i in range(C): 
-    for j in range(R+1): 
-        print(MFull[i][j], end = " ") 
+#matriks transpose 
+for j in range (C):
+    for i in range(R+1):
+        if j in Mterm_0:
+            print(DTermMatrix[i][j], end = " ")
     print()
 
-# Membentuk matriks dengan key : nilai sim; value : indeks
-MatrixSim = simi(query,DTermMatrix,R,C)
+#simi
+#for i in range(R+1):
+    #for j in range (C):
+        #print(DTermMatrix[i][j], end=" ")
+    #print()
 
+lengthQ = lengthdoc(query)
+
+Arrsim = []
+for i in range (R):
+    namafile = 'document' + str(i+1) + '.txt'
+    a[i] = DTermFrequencies(words, namafile)
+    lengthD = lengthdoc(a[i])
+    if lengthQ != 0:
+        Arrsim.append((hasildot(query,DTermMatrix,R,C)[i])/(lengthQ*lengthD))
+    else:
+        Arrsim.append(2)
+print(Arrsim)
+
+#judul dokumen, jumlah kata, tingkat kemiripan, first_sentence
 print("\nUrutan dokumen dengan nilai sim terurut mengecil")
-
-arrTuple = [(MatrixSim[i], jumlahkata[i], fsentence[i], titles[i], links[i]) for i in range(len(MatrixSim))]
-
+arrTuple = [(Arrsim[i], wordcount[i], first_sentence[i], links[i], titles[i]) for i in range(len(Arrsim))]
 def getKey(item): #diisi arrTuple
     return item[0]
 
-sorted(arrTuple, key=getKey, reverse = True)
-
+print(sorted(arrTuple, key=getKey, reverse = True))
