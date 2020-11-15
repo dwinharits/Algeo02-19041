@@ -7,6 +7,8 @@ from nltk.corpus import stopwords, words
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 import math
+import re
+import string
 
 # KAMUS
 '''
@@ -58,8 +60,19 @@ def getDocuments(titles,links):
         text_file.close()
         i = i + 1
 
+def clean(word):
+    # fungsi ini mengembalikan word yang udah distem lebih rapih
+    word = re.sub(r'[^\x00-x\x7F]+', '', word)
+    word = re.sub(r'@\w+', '', word)
+    word = word.lower()
+    word = re.sub(r'[%s]' % re.escape(string.punctuation), '', word)
+    word = re.sub(r'[0-9]', '', word)
+    word = re.sub(r'\s{2,}', '', word)
+    word = ps.stem(word)
+    return word
+
 def countTerm(arr, term):
-# mengembalikan banyaknya elemen arr yang sama dengan term
+    # mengembalikan banyaknya elemen arr yang sama dengan term
     count = 0
     for i in arr:
         if i==term:
@@ -67,13 +80,13 @@ def countTerm(arr, term):
     return count
     
 def DTermFrequencies(words, namafile): #words: array of string, namafile: string.txt
-# return vektor yang koresponden dengan jumlah kemunculan kata pada dokumen berdasarkan kumpulan term pada words
+    # return vektor yang koresponden dengan jumlah kemunculan kata pada dokumen berdasarkan kumpulan term pada words
     dtf = [0 for i in words]
     with open(namafile, 'r') as f:
         inWords = []
         for line in f:
             for word in line.split():
-                inWords.append(ps.stem(word))
+                inWords.append(clean(word))
         for i in range(len(words)):
             count = 0
             for j in inWords:
@@ -82,57 +95,88 @@ def DTermFrequencies(words, namafile): #words: array of string, namafile: string
             dtf[i] = count
     return dtf
 
-def QTermFrequencies(words, strInput): #words: array of strings, strInput: string
-# return vektor yang koresponden dengan jumlah kemunculan kata pada query berdasarkan kumpulan term pada words
+def QTermFrequencies(words, strInput): #words: array of strings, strInput: string   
+    # return vektor yang koresponden dengan jumlah kemunculan kata pada query berdasarkan kumpulan term pada words
     qtf = [0 for i in words]
     query = []
-    for i in word_tokenize(strInput):
-        query.append(ps.stem(i))
+    for word in strInput.split():
+        query.append(clean(word))
     for i in range(len(qtf)):
         count = 0
-        for j in query:
-            if(j==words[i]):
+        for word in query:
+            if(word==words[i]):
                 count += 1
         qtf[i] = count
     return qtf
 
 def STokenWord(namafile): #namafile: string.txt
-# return kata-kata yang unik dan udah distem dan tanpa stopwords
+    # return kata-kata yang unik dan udah distem dan tanpa stopwords
     words = []
     with open(namafile, 'r') as f:
         for line in f:
             for word in line.split():
-                if(ps.stem(word) not in words) and (word not in stop_words):
-                    words.append(ps.stem(word))
+                if(clean(word) not in words) and (word not in stop_words):
+                    words.append(clean(word))
+    if('' in words):
+        words.remove('')
+    if(' ' in words):
+        words.remove(' ')
     return words
 
 def WordTokenize(namafile):
+    # fungsi ini mengembalikan array of word dari dokumen dengan nama namafile
     words = []
     with open(namafile, 'r') as f:
         for line in f:
             for word in line.split():
-                words.append(ps.stem(word))
+                if(word!='' and word!=' '):
+                    words.append(clean(word))
     return words
 
 def getFirstSentence(namafile):
+    # fungsi ini mengembalikan kalimat pertama pada text file yang telah dikondisikan getDocuments()
+
+    # KAMUS LOKAL #
+    '''
+    line = kalimat(string)
+    '''
+
+    # ALGORITMA #
     with open(namafile, 'r') as f:
         line = f.readline()
         return line
 
-
 def getJumlahKata(namafile):
+    # fungsi getJumlah kata mengembalikan jumlah kata dalam text file
+
+    # KAMUS LOKAL #
+    '''
+    count: integer
+    line: kalimat(string)
+    word: kata(string)
+    '''
+
+    # ALGORITMA #
     with open(namafile,'r') as file: 
         count = 0     
         for line in file:        
             for word in line.split():          
-                count += 1 
-    return count 
+                word = clean(word)
+                if(word!='' and word!=' '):
+                    count+=1
+    return count
 
-def isDocEmpty(namafile):
-    with open(namafile,'r') as file: 
-        return len(file)==0
+def sim(qtf,dtf):
+    # qtf, dtf: array of integer dari TF query dan dokumen
+    # fungsi sim mengembalikan nilai cosine similarity antara query dan dokumen
+    # jika dtf atau qtf berelemen 0 seluruhnya maka sim menghasilkan 0
 
-def sim(qtf,dtf): #qtf, dtf: array of integer dari TF query dan dokumen
+    # KAMUS LOKAL #
+    '''
+    dotcount, squareQ, squareD, lengthQ, lengthD: float
+    '''
+
+    # ALGORITMA #
     dotcount = 0
     squareQ = 0
     squareD = 0
@@ -151,24 +195,57 @@ def sim(qtf,dtf): #qtf, dtf: array of integer dari TF query dan dokumen
         return dotcount/(lengthQ*lengthD)
 
 def getKey(item):
+    # getKey menerima array dan mengembalikan elemen pertamanya
+    # digunakan pada proses sorting di main
     return item[0]
 
+def uniqueList(listI):
+    # mengembalikan list yang unik berdasarkan listI(tidak ada elemen listI yang mengulang)
+
+    # KAMUS LOKAL #
+    '''
+    listB: list
+    '''
+
+    # ALGORTIMA #
+    listB = []
+    for element in listI:
+        if element not in listB:
+            listB.append(element)
+    return listB
+    
 
 ####################MAIN#########################
 
 def main(query):
+    
+    # prosedur main menghasilkan term table berdasarkan query dan sorted tuple berdasarkan nilai
+    #   cosine similarity antara dokumen-dokumen dengan query
+
+    # KAMUS LOKAL #
+    '''
+    titles: array of string, 0..29 untuk menyimpan judul
+    links: array of string, 0..29 untuk menyimpan link dokumen terkait
+    words: array of string, dinamis, sebagai koleksi word yang telah distem dan unik dari seluruh dokumen
+    matriksTF: array of array of int, 0..30 sebagai matriks vektor term frequencies
+    simIndex: array of real, 0..29 yang menyimpan nilai cosine similarity tiap dokumen
+    wordcounts: array of integer, 0..29 menyimpan jumlah kata tiap-tiap dokumen
+    firstlines: array of string, 0..29 menyimpan kalimat pertama tiap-tiap dokumen
+    tQuery: array of string, menyimpan query dalam bentuk array of string
+    '''
+
+    # ALGORITMA #
     titles = []
     links = []
     getDocuments(titles,links)
 
-    #strInput = input("Apa yang ingin anda cari: ")
     words = []
     matriksTF = [[] for i in range(31)]
     simIndex = [0 for i in range(30)]
     wordcounts = [0 for i in range(30)]
     firstlines = ['' for i in range(30)]
 
-    #ngebuat library term dari seluruh dokumen
+    # ngebuat library term dari seluruh dokumen
     for i in range(1,31):
         namafile = 'document' + str(i) + '.txt'
         setOfWords = set(words)|set(STokenWord(namafile))
@@ -179,19 +256,19 @@ def main(query):
 
     for i in range(1,31):
         namafile = 'document' + str(i) + '.txt'
-        matriksTF[i] = DTermFrequencies(words, namafile)
+        matriksTF[i]= DTermFrequencies(words, namafile)
 
-    #ngeset array jumlah kata
-    for i in range(30):
+    # ngeset array jumlah kata
+    for i in range(30): 
         namafile = 'document' + str(i+1) + '.txt'
         wordcounts[i] = getJumlahKata(namafile)
 
-    #ngeset array jumlah firstlines
+    # ngeset array jumlah firstlines
     for i in range(30):
         namafile = 'document' + str(i+1) + '.txt'
         firstlines[i] = getFirstSentence(namafile)
 
-    #ngeset array jumlah simIndex
+    # ngeset array jumlah simIndex
     for i in range(1,31):
         simIndex[i-1] = sim(matriksTF[0], matriksTF[i])
 
@@ -201,7 +278,8 @@ def main(query):
     print(sorted(arrTuple, key = getKey, reverse = True))
 
     # buat term table
-    tQuery = query.split()
+    tQuery = uniqueList(query.split())
+    
     for term in tQuery:
         print(term, end=': ')
         for i in range(30):
@@ -209,10 +287,8 @@ def main(query):
             print(countTerm(WordTokenize(namafile),term), end=' ')
         print('')
 
-
-
-
-
+q = input('masukkan query: ')
+main(q)
 
 
 
