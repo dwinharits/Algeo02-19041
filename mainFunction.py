@@ -9,6 +9,7 @@ from nltk.stem import PorterStemmer
 import math
 import re
 import string
+from flask import Flask, render_template, request
 
 # KAMUS
 '''
@@ -27,6 +28,39 @@ QTermFrequencies : fungsi yang ngereturn array of integer TF dari query
 STokenWord : fungsi yang ngereturn array kata-kata yang unik elemennya dan gaada stopwords
 sim : fungsi yang ngereturn cosine similarity(float)
 '''
+
+app = Flask(__name__)
+
+query =""
+titles = []
+links = []
+words = []
+matriksTF = [[] for i in range(31)]
+simIndex = [0 for i in range(30)]
+wordcounts = [0 for i in range(30)]
+firstlines = ['' for i in range(30)]
+arrTuple=[]
+
+@app.route('/')
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/', methods=['POST','GET'])
+def homepage_query():
+    query = request.form['q']
+    main(query)
+    print(arrTuple)
+    return render_template('results.html', arrTuple=arrTuple)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/howtouse')
+def howtouse():
+    return render_template('howtouse.html')
+
+
 def getText(link):
     source = requests.get(link).text
     soup = BeautifulSoup(source, 'lxml')
@@ -274,8 +308,9 @@ def main(query):
 
     # nanti ke-print simIndexnya, tinggal disort buat tau yang
     # mana dokumen paling relevan, jangan lupa indeksnya 0..29
+    global arrTuple
     arrTuple = [(simIndex[i], titles[i], links[i], firstlines[i], wordcounts[i]) for i in range(30)]
-    print(sorted(arrTuple, key = getKey, reverse = True))
+    arrTuple = sorted(arrTuple, key = getKey, reverse = True)
 
     # buat term table
     tQuery = uniqueList(query.split())
@@ -287,7 +322,8 @@ def main(query):
             print(countTerm(WordTokenize(namafile),term), end=' ')
         print('')
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 

@@ -1,8 +1,11 @@
+:root {
+    --light: rgba(255,255,255,.8);
+}
 body{
     margin: 0;
     padding: 0;
     background: 
-        #D1C3B7;
+        whitesmoke;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
