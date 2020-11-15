@@ -19,11 +19,11 @@
               <p class="lead">Articles from CNBC's Latest News Feed</p>
             </div>
         </div class="container">
-        {% for article in arrTuple %}
-          <h2><a href="{{ arrTuple[article][2] }}">{{ arrTuple[article][1] }}</a></h2>
-          <p>Jumlah kata: {{ arrTuple[article][4] }}</p>
-          <p>Tingkat kemiripan: {{ arrTuple[article][0] }}</p>
-          <p>{{ arrTuple[article][3] }}</p>
+        {% for article in arrDict %}
+          <h2><a href="{{ article.link }}">{{ article.title }}</a></h2>
+          <h3>Jumlah kata: {{ article.wordcount }}</h3>
+          <h3>Tingkat kemiripan: {{ article.sim }}</h3>
+          <p>{{ article.firstline }}</p>
         {% endfor %}
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

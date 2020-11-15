@@ -39,7 +39,7 @@ matriksTF = [[] for i in range(31)]
 simIndex = [0 for i in range(30)]
 wordcounts = [0 for i in range(30)]
 firstlines = ['' for i in range(30)]
-arrTuple=[]
+arrDict=[]
 
 @app.route('/')
 def homepage():
@@ -49,8 +49,8 @@ def homepage():
 def homepage_query():
     query = request.form['q']
     main(query)
-    print(arrTuple)
-    return render_template('results.html', arrTuple=arrTuple)
+    print(arrDict)
+    return render_template('results.html', arrDict=arrDict)
 
 @app.route('/about')
 def about():
@@ -308,9 +308,24 @@ def main(query):
 
     # nanti ke-print simIndexnya, tinggal disort buat tau yang
     # mana dokumen paling relevan, jangan lupa indeksnya 0..29
-    global arrTuple
-    arrTuple = [(simIndex[i], titles[i], links[i], firstlines[i], wordcounts[i]) for i in range(30)]
-    arrTuple = sorted(arrTuple, key = getKey, reverse = True)
+    global arrDict
+    arrDict = [
+        {
+            'sim':0,
+            'title': '',
+            'link': '',
+            'firstline': '',
+            'wordcount': 0
+        } for i in range(30)]
+
+    for i in range(30):
+        arrDict[i]['sim'] = simIndex[i] 
+        arrDict[i]['title'] = titles[i]
+        arrDict[i]['link'] = links[i]
+        arrDict[i]['firstline'] = firstlines[i]
+        arrDict[i]['wordcount'] = wordcounts[i]
+
+    arrDict = sorted(arrDict, key = lambda i: i['sim'], reverse = True)
 
     # buat term table
     tQuery = uniqueList(query.split())
