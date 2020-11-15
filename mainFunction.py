@@ -287,9 +287,6 @@ def main(query):
             print(countTerm(WordTokenize(namafile),term), end=' ')
         print('')
 
-q = input('masukkan query: ')
-main(q)
-
 
 
 
