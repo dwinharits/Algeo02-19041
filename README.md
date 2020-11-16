@@ -15,11 +15,11 @@ Mesin Pencari Sederhana dengan Konsep Cosine Similarity
 ## General Info
 Project ini dibuat dalam rangka memenuhi tugas besar mata kuliah IF 2123 Aljabar dan Geometri 
 
-<br />  Program Studi Teknik Informatika
-<br />  Sekolah Teknik Elektro dan Informatika
-<br />  Institut Teknologi Bandung
+  Program Studi Teknik Informatika
+  Sekolah Teknik Elektro dan Informatika
+  Institut Teknologi Bandung
 
-<br />  Semester I Tahun 2020/2021
+ Semester I Tahun 2020/2021
 
 ## Screenshots
 ![picture alt](./img/homepage.png)
