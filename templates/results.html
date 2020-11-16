@@ -25,6 +25,28 @@
           <h3>Tingkat kemiripan: {{ article.sim }}</h3>
           <p>{{ article.firstline }}</p>
         {% endfor %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Term</th>
+              <th scope="col">Query</th>
+              {% for i in range(30) %}
+                <th scope="col">D{{i+1}}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for j in termTable %}
+              <tr>
+                <th scope="row">{{ j.word }}</th>
+                <td>{{ j.frequency[0] }}</td>
+                {% for i in range(1,31) %}
+                  <td>{{ j.frequency[i] }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

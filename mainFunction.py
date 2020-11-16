@@ -40,6 +40,8 @@ simIndex = [0 for i in range(30)]
 wordcounts = [0 for i in range(30)]
 firstlines = ['' for i in range(30)]
 arrDict=[]
+termTable=[]
+tQuery = []
 
 @app.route('/')
 def homepage():
@@ -50,7 +52,7 @@ def homepage_query():
     query = request.form['q']
     main(query)
     print(arrDict)
-    return render_template('results.html', arrDict=arrDict)
+    return render_template('results.html', arrDict=arrDict, termTable=termTable)
 
 @app.route('/about')
 def about():
@@ -328,8 +330,25 @@ def main(query):
     arrDict = sorted(arrDict, key = lambda i: i['sim'], reverse = True)
 
     # buat term table
+    global tQuery
     tQuery = uniqueList(query.split())
+
+    global termTable
     
+    termTable = [
+        {
+            'word': '',
+            'frequency': [0 for i in range(31)]
+        } for i in range(len(tQuery))]
+
+    
+    for j in range(len(tQuery)):
+        termTable[j]['word'] = tQuery[j]
+        termTable[j]['frequency'][0] = countTerm(query.split(), tQuery[j])
+        for i in range(1,31):
+            namafile = 'document' + str(i) + '.txt'
+            termTable[j]['frequency'][i] = countTerm(WordTokenize(namafile), tQuery[j])
+
     for term in tQuery:
         print(term, end=': ')
         for i in range(30):
