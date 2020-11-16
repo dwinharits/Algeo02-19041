@@ -1,0 +1,31 @@
+Boasting the hottest tech IPO of the year (and the biggest software IPO ever), Snowflake, the cloud-based data-warehousing company has been on fire in 2020. And its CEO Frank Slootman, at the center of that success, has now delivered three companies to the public markets, earning his place as one of the most respected CEOs in enterprise technology.
+
+Nineteen months ago, Slootman was named CEO of Snowflake, which gives businesses new ways to store and access data, rather than relying on clunky databases tied to hardware. Before he arrived, the company, guided by former Microsoft executive Bob Muglia, was already valued at about $4 billion by venture investors.
+
+"He's one of the most impressive, most accomplished, most respected CEOs in enterprise tech," Asheem Chandna, a software investor at Greylock Partners, told CNBC a few months back. "He's a take-no-prisoners leader. He can point at a hill and inspire the entire team to follow him to take the hill." 
+
+Greylock invested in the first two companies Slootman took public, Data Domain (later acquired by EMC and now part of Dell) and ServiceNow, where he served as President and CEO from 2011 to 2017, taking the organization from around $100 million in revenue, to $1.4 billion post-IPO.
+
+Before going public, Snowflake ranked No. 40 on this year's CNBC Disruptor 50 list.
+
+There's one question Slootman claims to ask everyone (including himself): "If you couldn't do anything this year except for one thing — one thing and you couldn't do anything else — what would that be?"
+
+Anyone who does not have the answer to that question should be better prepared, because it can make a difference between focus and failure.
+
+Slootman says he once asked this of a candidate for chief product officer during his time at ServiceNow, who stared at him blankly.
+
+"It's an incredibly hard question to answer," Slootman said at last month's CNBC Technology Executive Council Summit. "It's very easy to come up with three [things]. It's very hard to come up with one, because you could be wrong."
+
+"I've often been in board meetings at other companies and the CEO will put up a list of 10 priorities ... well, that's the same as having no priorities," Slootman said. "If you're in an executive position, you have to train yourself to be very, very clear. [The answer to that question] means that's the most important thing, that's the most critical ... and doing that arbitrage is what we have to do."
+
+The Snowflake CEO also embraces his contrasting style to many other Silicon Valley tech leaders, and while he bristles at the suggestion he is not exactly "warm and fuzzy," he is no-nonsense in approach and does not hide it.
+
+"I put all the focus not so much on lattes and neck rubs, but on us succeeding as a team," he told CNBC's Jon Fortt in October. "Silicon Valley is very much a high-fiving, self-congratulatory culture. They love to just do a victory lap. We're not into that," he said. "People want to be patted on the back and feel good — I'm into not feeling good."
+
+According to previous reporting from CNBC's Ari Levy and Jordan Novet, "some people who were at Snowflake for the transition from Muglia to Slootman described a culture of fear that took over after the reshuffling, with employees, particularly in sales, just trying to keep their heads down and their jobs intact long enough for the company to go public and their options to vest."
+
+But in conversation with Fortt at last month's CNBC Technology Executive Summit, Slootman explained that his approach to breaking leaders and talent of what he calls "incrementalism," is asking them to choose what's most important through that one specific, curated question:
+
+"There are a lot of things that happen in technology that are incremental ... that's just the nature of evolving a platform and fixing bugs and enhancing capabilities and so on," Slootman said. "But if you completely fall into that mode, after awhile, there's nothing original or compelling about what you're doing anymore."
+
+"You have to be a highly abstract, very lateral thinker, very integrated thinker, to arrive at your priorities."
