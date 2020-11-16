@@ -1,39 +1,15 @@
-The United States reported a record-high number of people hospitalized with Covid-19 on Friday as more states roll out fresh restrictions to slow the spread of the virus ahead of the holiday season, with some officials urging Americans to cancel their Thanksgiving plans and stay at home.
+General Motors is recalling tens of thousands of all-electric Chevrolet Bolt EVs due to risk of fire.
 
-More than 68,500 are hospitalized with Covid-19 across the country, more than at any other point during the pandemic, according to data from the COVID Tracking Project, which is run by journalists at The Atlantic. More than 13,100 people in the U.S. are currently in the ICU, according to the COVID Tracking Project's data.
+The Detroit automaker said Friday it is recalling 68,667 of the cars globally from the 2017 through 2019 model years, including nearly 51,000 in the U.S. The recall includes some vehicles being used by GM's majority-owned autonomous vehicle subsidiary Cruise.
 
-Deaths caused by Covid-19 continue to trend upward, as well. The Centers for Disease Control and Prevention is projecting a rise in newly reported Covid-19 deaths over the next month. The CDC updated their forecast this week to say that newly reported deaths "will likely increase over the next four weeks, with 5,500 to 13,400 new deaths likely to be reported in the week ending December 5, 2020."
+GM has confirmed five instances of fires that "could be related to the high voltage batteries" in the vehicles, according to Jesse Ortega, executive chief engineer for the Chevrolet Bolt EV.
 
-The country continues to push new records for cases. The U.S. reported record one-day spike of more than 177,200 new cases on Friday, pushing the seven-day average over 139,900 cases per day, up more than 35% compared with a week ago, according to a CNBC analysis of data compiled by Johns Hopkins University. The seven-day average of daily new cases has hit a fresh record everyday for at least the past ten days, Hopkins data shows.
+The National Highway Traffic Safety Administration in October opened an investigation into three reported fires involving Chevrolet Bolt EVs. The automaker is cooperating with the federal vehicle safety agency, Ortega said.
 
-The surge is pushing hospitals in some parts of the country, particularly the Midwest and Western U.S., to their limits. Rich Rasmussen, CEO of the Montana Hospital Association, said in a phone interview on Friday that adjusted for population, Montana is among the hardest hit states in the country.
+GM has a dedicated team of engineers and experts working to determine the cause of the fires, according to Ortega. They have so far found that common factors in the fires included vehicles were at or near full charge and had batteries produced between May 2016 and May 2019 by GM's partner LG Chem in South Korea.
 
-"The actual on-the-ground impact in a small state like ours is greater than it is nationally," he said, adding that the state's hospitals are quickly running out of resources. "We're competing with the rest of the nation for staffing and that's our biggest challenge right now... What we don't have is the rich depth of staffing that other more urban states have. That is our biggest challenge."
+GM doesn't expect a full solution for the problem until next year. In the meantime, GM is asking Bolt EV owners to schedule an appointment with a Chevrolet dealership beginning Tuesday. The dealer will reflash and update the car's battery software to limit the maximum charge of the vehicle to 90%.
 
-He said most of the state's hospitals are "above 100% staffing capacity" and hospitals are trying to share the load of patients by transporting hospitalized people across the state. But the problem, Rasmussen said, is that the virus is spreading in nearly every community, burdening all hospitals in the state.
+Until customers receive the software update, GM is asking owners to change their vehicle's settings to lower its charging capacity. It released a video Friday on how to do so. If customers are "uncomfortable" with changing the settings, GM said they should avoid parking the vehicles in garages or carports until receiving the software update.
 
-"So we are pecking out on our ability to continue to treat patients based on our staffing limitations," he said.
-
-Dr. Alan Kaplan, CEO of UW Health at the University of Wisconsin, painted a similar picture of overwhelmed health workers in Wisconsin. He said Thursday that his system's hospitals are overwhelmed in both rural and urban communities.
-
-"We are short of staff all times, either because they have Covid or they have some other illness and we need to rule out Covid before we bring them back to work," he said on "Squawk on the Street." "There is no surplus now."
-
-With the virus resurging, state and city officials are taking action to curb the spread and safeguard hospitals. However, while in the spring, officials rolled out widespread restrictions and stay-at-home orders, this time around, officials are largely trying to implement more targeted measures to protect the economy.
-
-Chicago Mayor Lori Lightfoot last week asked all residents to cancel Thanksgiving plans and stay at home unless they need to go to work or school or to tend to essential needs such as a doctor's appointment or grocery shopping.
-
-"This is serious life and death," Lightfoot said at a press conference. "We are sounding the alarm that we are at this inflection point where we have to do more than we've already done."
-
-City and state officials elsewhere are also urging people to cancel holiday plans, especially if it requires interstate travel. New York City Mayor Bill de Blasio said last month: "I hate to say it, but I have to urge all New Yorkers: Do not travel out of state for the holidays."
-
-Massachusetts Gov. Charlie Baker also suggested last month that people should reconsider their holiday plans. And Dr. Celine Gounder, a member of President-elect Joe Biden's Covid-19 advisory board, said Friday that traveling for Thanksgiving would be like "pouring gasoline on a fire."
-
-Oregon Gov. Kate Brown on Friday announced some of the most sweeping actions taken this fall by a governor in response to the virus. The governor's new restrictions limit restaurants to takeout service only; limit retailers, grocery stores and pharmacies to 75% capacity; close gyms, fitness centers and indoor and outdoor event centers; limit attendance at places of worship and require other businesses to use remote work as much as possible.
-
-"If this all sounds familiar to our Stay Home, Save Lives order I issued back in March, that's because it is," Brown said at a news briefing. "The cycle of this virus is such that we are seeing case rates topping 1,000 per day now and that means our hospitals are headed for some very dark days ahead."
-
-Other hard-hit states are also taking action, rolling back reopening plans and issuing statewide mask mandates. Idaho Gov. Brad Little, for example, said Friday he would sign an executive order mobilizing 100 members of the state's national guard to help with Idaho's Covid-19 response and issue a new public health order placing more restrictions on businesses and gatherings.
-
-And in North Dakota, which has one of the most rapidly spreading Covid-19 outbreaks, per capita, in the country, the state health officer ordered a statewide mask mandate on Friday.
-
-"Right now, the data demands a higher level of mitigation efforts to reverse these dangerous trends, to slow the spread of this virus and to avoid the need for economic shutdowns," North Dakota Gov. Doug Burgum said. "Our situation has changed, and we must change with it."
+NHTSA's probe covered 77,842 Bolt EVs from the 2017 through 2020 model years. GM said it is not recalling vehicles from the 2020 model-year because their batteries have a different formula than the earlier models with no reports of fires.

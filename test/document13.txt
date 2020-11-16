@@ -1,45 +1,29 @@
-A national lockdown of businesses and schools is a "measure of last resort," even as cases continue to surge to record-highs across the U.S., a top coronavirus advisor to President-elect Joe Biden said on Sunday.
+In addition to its human toll, racial housing inequality is exacting an economic price that has cost nearly 800,000 jobs, $400 billion in tax revenue and prevented about five million from owning homes, according to a Morgan Stanley analysis.
 
-Covid-19 cases were growing by 5% or more in 47 states as of Saturday, based on a weekly average, according to a CNBC analysis of data compiled by Johns Hopkins University. The U.S. reported 166,555 new cases on Saturday, the second-highest daily number of new cases so far.
+Disparities in home ownership are a root cause of wealth disparities across society, the Wall Street firm said in research that also looked at the rising unaffordability of rental housing and how that fits into the broader issue.
 
-The U.S. is now reporting a weekly average of 145,401 cases every day, a more than 33% increase compared with a week ago and a record high average, according to Hopkins. The nation surpassed more than 11 million reported Covid-19 cases on Sunday, adding an additional 1 million cases in less than a week. 
+The analysis found that Blacks still have a harder time getting a mortgage than Whites, causing a snowball effect that results in lower credit ratings, pushing minorities into lower-quality housing and further into the fringes of society.
 
-More than 69,400 people were hospitalized with Covid-19, the highest number of patients with the virus at any point during the pandemic, according to data from the COVID Tracking Project, which is run by journalists at The Atlantic.
+"Inequality compounds in exactly the same way as interest — small, nearly negligible differences accrue into significant gaps over time," Morgan Stanley analysts said in a lengthy report. "Racial inequality in access to homeownership is real, is compounding existing inequality, and is contributing to a rental affordability crisis that's especially acute among lower-income earners."
 
-Top coronavirus advisors for Biden, who named a panel of scientists on Monday to help navigate his Covid-19 response, have given differing stances on whether the U.S. should adopt lockdown measures to control the recent spike in cases.
+Though rising, the homeownership rate for Blacks remains well below that of Whites, Asians and Hispanics.
 
-"That's a measure of last resort," Dr. Vivek Murthy, a former U.S. surgeon general tapped to help lead the group, told "Fox News Sunday," adding that any lockdown at this stage of the pandemic would look different than the sweeping closures which states enacted in the spring to suppress the virus.
+The rate as of the third quarter of 2020 was 46.4% for Blacks, compared to 67.4% for Whites, according to the Census Bureau. The Black rate was 41.5% at the beginning of 2016; the gap with Whites then was 22 percentage points, while it currently is 21 points.
 
-"In the spring we didn't know a lot about Covid, we responded, in a sense, with an on-off switch. We just shut things down because we didn't know exactly how this was spreading and where it was spreading, but we learned a lot more since then," Murthy said.
+While Morgan Stanley said the gap can be explained somewhat by age, income and education, discrimination in getting home financing also plays a major role.
 
-Murthy's comments come after another Covid-19 advisor to Biden, Dr. Michael Osterholm, who serves as director of the Center of Infectious Disease Research and Policy at the University of Minnesota, told Yahoo Finance in an interview Wednesday that shuttering businesses for four to six weeks while paying people for lost wages could help suppress cases and hospitalizations to a manageable level.
+"Disproportionately high rates of home loan application denials for Black and Hispanic applicants are a key factor contributing to the homeownership gap," the report said. Citing data from the Home Mortgage Disclosure Act, the report noted that 16% of Black households and 12% of Hispanics were refused a mortgage in 2019, compared to just 8% of White households.
 
-Osterholm later clarified his comments in an interview with NBC News, saying, "It was not a recommendation. I have never made this recommendation to Biden's group. We've never talked about it."
+Morgan Stanley floats several proposals to deal with the problem.
 
-A Biden transition official told NBC News that a shutdown "is not in line with the president-elect's thinking."
+The report cites the likelihood that President-elect Joe Biden will institute more regulations that address inequality. However, it also states the need for more rental housing units rather than simply instituting different regulations for the existing stock.
 
-"We are not in support of a nationwide lockdown," Dr. Atul Gawande, a professor of surgery and health policy at Harvard and a Biden advisor, told ABC's "This Week" on Sunday. "You can have targeted measures building on mask wearing to include widespread testing, can include dialing up and down capacity restrictions, and those measures need to happen on a more localized basis."
+There's also a recommendation for greater scrutiny of how banks and other financial institutions are lending, especially for loans not backed up by government enterprises like Fannie Mae and Freddie Mac. Even when they get mortgages, Black and Hispanic families usually pay significantly higher rates – generally more than half a percentage point above the prevailing rate.
 
-Both Gawande and Murthy pointed to New York's "micro-cluster" strategy as an example. The state has imposed tougher restrictions on specific areas depending on the level of coronavirus spread. The hardest-hit red zones would be forced to close nonessential businesses and schools for in-person learning while other surrounding areas can remain open with modifications.
+Morgan Stanley's analysts also call for a rental and homeowner bill of rights, expansion of the Community Reinvestment Act, and the creation of a $100 billion Affordable Housing Fund.
 
-"On a zip code by zip code basis, you can deploy different restrictions in order to get the virus under control and it's quite effective. We do not need to go into a nationwide, shelter-in-place shutdown," Gawande said.
+The authors also address financial literacy and its importance for prospective borrowers to know what they're getting.
 
-More states are beginning to ease back into coronavirus restrictions and institute statewide mask mandates as coronavirus cases continue to soar ahead of the holidays. Many governors have pointed to "Covid fatigue," or the reduced compliance with recommended public health guidance, as one reason for the swelling infections.
+Fixing the disparities could result in 4.9 million more households created, along with 784,000 jobs and $400 billion in tax revenue by bringing homeownership levels in line from a race standpoint, according to the analysis.
 
-In New Mexico, Gov. Michelle Lujan Grisham said in a Twitter post that the state will "hit reset" and begin a statewide stay-at-home order on Monday. Residents are instructed to stay at home unless venturing out for essential services.
-
-Oregon Gov. Kate Brown on Friday announced sweeping new restrictions limiting restaurants to takeout service only; closing gyms, fitness centers and indoor and outdoor event centers; and limiting attendance at places of worship, among other limitations.
-
-North Dakota Gov. Doug Burgum, a Republican who has resisted instituting a mask mandate, ordered residents on Friday to begin covering their face when in public. On Thursday, Ohio Gov. Mike DeWine reimposed a statewide mask mandate with tougher enforcement measures on businesses.
-
-"If we wear a mask, we are keeping our kids in school and we are protecting our elderly and we are protecting our hospitals," DeWine told CNN's "State of the Union" on Sunday. "We can see the end of this, we just have to tough it out... for a few more months and do what we need to do so we can get through this."
-
-A handful of cities have started to carry out their own restrictions. Chicago on Thursday said it was issuing the 30-day stay-at-home advisory, asking people to refrain from traveling, having guests in their home or leaving for nonessential business "in response to the rapid rise of COVID-19 cases and hospitalizations in the city."
-
-In New York City, schools will remain open for in-person learning on Monday, though Mayor Bill de Blasio has instructed parents to prepare their students to move to remote-learning once the citywide positivity rate, or the percentage of positive tests, hits an average of 3%.
-
-De Blasio said in a Tweet on Sunday that the city's positivity rate stands at 2.57%.
-
-"Thankfully, schools will remain open on Monday, but we have to keep fighting back with everything we've got," he said.
-
-— CNBC's Will Feuer contributed to this report.
+The report cites a number of initiatives from big Wall Street banks to address disparities: $1 billion from Citigroup and $30 billion from JP Morgan Chase, two name two.
