@@ -65,6 +65,7 @@ To-do list:
 Pak Rinaldi
 
 ## Author
+Kelompok 59
 * Mohammad Dwinta Cahyana (13519041)
 * Aisyah Farras Aqila (13519054)
 * Aulia Adila (13519100)
